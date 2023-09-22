@@ -1,5 +1,5 @@
 <template>
-    <footer>&copy;2022 Memo App. All rights reseved.</footer>
+    <footer>&copy;2023 Memo Web. All rights reseved.</footer>
 </template>
 
 <style scoped>
