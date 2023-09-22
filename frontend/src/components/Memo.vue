@@ -1,4 +1,7 @@
 <template>
+  <hr>
+  <h2 style="margin-top:25px;">Todo List</h2>
+ 
   <div class="memo">
     <div class="act">
       <button class="btn btn-primary" @click="add()">+ 추가</button>
@@ -7,6 +10,8 @@
       <li v-for="(d,idx) in state.data" :key="idx" @click="edit(idx)">{{ d }}</li>
     </ul>
   </div>
+  <!-- https://icons.getbootstrap.com/ -->
+  <i class="bi bi-emoji-smile"></i>
 </template>
 
 <script>

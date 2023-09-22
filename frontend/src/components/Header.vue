@@ -1,5 +1,5 @@
 <template>
-    <header>Memo App</header>
+    <header>Memo List</header>
 </template>
 
 <style scoped>
