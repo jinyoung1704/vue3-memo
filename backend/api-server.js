@@ -28,14 +28,14 @@ app.put("/api/memos/:idx",(req,res)=>{
   res.send(memos)
 })
 
-//todo
+//Memo
 app.get('/api/addPost', (req, res) => {
   res.send(newPost)
 })
 
 app.post("/api/addPost",(req,res)=>{
-  console.log('======post========');
-  console.log('req.body',req.body.newPost);
+  //console.log('======post========');
+  //console.log('req.body',req.body.newPost);
   newPost.push(req.body.newPost);
 
   res.send(newPost)
