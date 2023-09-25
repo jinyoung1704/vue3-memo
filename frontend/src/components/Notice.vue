@@ -1,10 +1,8 @@
-
 <template>
-    <div class="row">
+    <div class="row" style="margin-top: 20px;">
         <div class="col col-2">
             <select v-model="priority" class="form-select" aria-label="Default select example">
-                <option selected>⭐</option>
-                <option value="⭐">⭐</option>
+                <option value="⭐" selected>⭐</option>
                 <option value="⭐⭐">⭐⭐</option>
                 <option value="⭐⭐⭐">⭐⭐⭐</option>
                 <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
@@ -19,19 +17,16 @@
         </div>
     </div>
 
-    <hr>
-    
-    <div class="container py-4" v-for="(post,idx) in posts.data" :key="idx">
-        <div clas="row g-3">
-            <div class="col col-4">
-                <div class="card" style="background-color: rgb(241, 241, 204);">
-                    <h5 class="card-title">{{ post.priority }}</h5>
-                    <p class="card-text">{{ post.notice }}</p>
-                    <a href="#" class="btn btn-primary" :key="idx" @click="remove(idx)">삭제</a>
-                </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4" style="margin-top: 20px;">
+        <div class="col" v-for="(post,idx) in posts.data" :key="idx">
+            <div class="card" style="background-color: rgb(241, 241, 204); ">
+                <h5 class="card-title">{{ post.priority }}</h5>
+                <p class="card-text">{{ post.notice }}</p>
+                <a href="#" class="btn btn-primary" :key="idx" @click="remove(idx)">삭제</a>         
             </div>
         </div>
     </div>
+    
 </template>
 
 <script>
