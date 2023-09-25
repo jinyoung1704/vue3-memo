@@ -1,5 +1,4 @@
-// src/components/TheNav.vue
-<script setup></script>
+
 <template>
     <div class="row">
         <div class="col col-2">
@@ -22,7 +21,7 @@
 
     <hr>
     
-    <div class="container py-4" v-for="(post,idx) in posts.data" :key="idx" >
+    <div class="container py-4" v-for="(post,idx) in posts.data" :key="idx">
         <div clas="row g-3">
             <div class="col col-4">
                 <div class="card" style="background-color: rgb(241, 241, 204);">
@@ -41,7 +40,7 @@ import axios from "axios";
 
 export default {
   setup() {
-    const priority = ref('⭐⭐⭐'); //셀렉트박스 기본값 뉴스로 바인딩
+    const priority = ref('⭐⭐⭐'); //반응형, 셀렉트박스 기본값 뉴스로 바인딩
     const notice = ref('');
     const posts = reactive({
       data: []
@@ -53,25 +52,25 @@ export default {
             notice: notice.value
         }
 
-        console.log('newPost',newPost);
         axios.post("/api/addPost", { newPost }).then((res) => {
- 
-            console.log('res :',res.data);
-            //console.log('res :',res.data[0].priority);
-            //console.log('res :',res.data[0].type);
-
-
             posts.data = res.data;
+           //초기화
+            priority.value ='⭐⭐⭐';
+            notice.value ='';
         });
     };
 
     const remove = (idx) => {
-        console.log(idx);
+        //console.log(idx);
         posts.data.splice(idx,1);
     };
 
+    axios.get("/api/addPost").then((res) => {
+        posts.data = res.data;
+    });
 
-    return { createPost ,priority ,notice, posts ,remove };
+
+    return { createPost ,priority ,notice, posts ,remove};
   },
 };
 </script>
